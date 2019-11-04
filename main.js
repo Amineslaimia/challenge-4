@@ -7,7 +7,23 @@
 //The function should never return undefined
 
 function operateOn(firstNumber, secondNumber, operation) {
-  //TODO: your code here
+  if(operation === 0){
+    return firstNumber + secondNumber;
+  }
+  else if(operation === 1){
+    return firstNumber * secondNumber;
+  }
+  else if(operation === 2){
+    if(firstNumber > secondNumber){
+      return firstNumber / secondNumber;
+    }
+    else if(firstNumber<secondNumber){
+      return secondNumber/firstNumber;
+    }   
+  }
+  else {
+    return 'Nothing to Operate On';
+  }
 }
 
 //========================================================== 2
@@ -17,16 +33,94 @@ function operateOn(firstNumber, secondNumber, operation) {
 //Write the function using while loop and for loop
 
 function addArraysWhileLoop(firstArray, secondArray) {
-  //TODO: your code here
+ var arr = [];
+ var i=0;
+ var j = firstArray.length;
+ var k = secondArray.length;
+ 
+ if(firstArray.length === secondArray.length){
+  while(i<firstArray.length){
+    arr.push(firstArray[i]+secondArray[i]);
+    i++;
+  }
+ }
+
+ else if(firstArray.length < secondArray.length){
+  while(i<firstArray.length){
+    arr.push(firstArray[i]+secondArray[i]);
+    i++;
+  }
+  while(j<secondArray.length){
+    arr.push(secondArray[j]+1)
+    j++;
+  }
+ }
+
+ else if(firstArray.length > secondArray.length){
+  while(i<secondArray.length){
+    arr.push(firstArray[i]+secondArray[i]);
+    i++;
+  }
+  while(k<firstArray.length){
+    arr.push(firstArray[k]+1)
+    k++;
+  }
+ }
+ return arr;
 }
 
 function addArraysForLoop(firstArray, secondArray) {
-  //TODO: you code here
+  var arr = [];
+
+  if(firstArray.length === secondArray.length){
+    for(var i=0; i<firstArray.length;i++){
+      arr.push(firstArray[i]+secondArray[i]);
+    }
+  }
+
+
+  else if ( secondArray.length < firstArray.length ){
+    for(var i=0;i<secondArray.length;i++){
+      arr.push(firstArray[i]+secondArray[i]);
+    }
+
+    for(var j=secondArray.length;j<firstArray.length;j++){
+      arr.push(firstArray[j]+1);
+    }
+  }
+
+else if ( secondArray.length > firstArray.length ){
+    for(var i=0;i<firstArray.length;i++){
+      arr.push(firstArray[i]+secondArray[i]);
+    }
+
+    for(var j=firstArray.length;i<secondArray.length;i++){
+      arr.push(secondArray[j]+1);
+    }
+  }
+
+  return arr;
 }
 
 //=========================================================== 3
 //Using recursion, return the sum of all of the positives numbers of an array of numbers.
 // posSum[1,-4,7,12] => 1 + 7 + 12 = 20
+
+function positive(n){
+  if(n>0){
+    return n;
+  }
+  else {
+    return 0;
+  }
+}
+
+function posSum(array){
+  if(array.length === 0){
+    return 0;
+  }
+  return positive(array[0])+posSum(array.slice(1));
+}
 
 //TODO: you code here
 
@@ -45,7 +139,15 @@ var bucketOfSloths = [
 // fullName(bucketOfSloths,0) //==> "Furry Danger Assassin"
 
 function fullName(array, index) {
-  //your code is here
+  if(array[index] === undefined){
+    return 'this index doesnt exist';
+  }
+  else if (array[index].name.middle === undefined){
+     return array[index].name.first + ' ' +array[index].name.last;
+  }
+  else {
+    return array[index].name.first + ' ' + array[index].name.middle+' '+array[index].name.last;
+  }
 }
 
 //  b- Write a function that takes an array of objects (like bucketOfSloths)
@@ -56,7 +158,16 @@ function fullName(array, index) {
 // => {name: {first: "Furry", middle: "Danger", last: "Assassin"}, age: 2}
 
 function longestName(bucketOfSloths) {
-  // TODO: Your code here
+ var FirstElementLength = (fullName(bucketOfSloths,0).split('').length) - (fullName(bucketOfSloths,0).split(' ').length-1);
+ var longest = bucketOfSloths[0];
+
+ for(var i =0;i<bucketOfSloths.length;i++){
+
+  if((fullName(bucketOfSloths,i).split('').length - fullName(bucketOfSloths,i).split(' ').length-1)>FirstElementLength){
+    longest= bucketOfSloths[i] ;
+  }
+ }
+ return longest;
 }
 
 //Good Luck :))
