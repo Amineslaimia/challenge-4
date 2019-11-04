@@ -8,6 +8,24 @@
 
 function operateOn(firstNumber, secondNumber, operation) {
   //TODO: your code here
+  var result = 0;
+  if(operation === 0){
+  	result = firstNumber + secondNumber;
+  	} else {
+  		if (operation === 1){
+  		result = firstNumber * secondNumber;
+  		} else {
+  			if (operation === 2){
+  			result = firstNumber / secondNumber;
+  			} else {
+  				if (operation > 2){
+  					return "Nothing to Operate On"; 
+  				}return result;
+  			} 
+  		
+  	}
+  }
+  return result;
 }
 
 //========================================================== 2
@@ -46,6 +64,15 @@ var bucketOfSloths = [
 
 function fullName(array, index) {
   //your code is here
+var target = array[index];
+var fullName =[];
+
+for(var key in target){
+	fullName.push(target['name']['first'] + ' ' + target['name']['middle'] + ' ' + target['name']['last'])
+	}
+	
+
+console.log(fullName.toString())
 }
 
 //  b- Write a function that takes an array of objects (like bucketOfSloths)
@@ -57,6 +84,17 @@ function fullName(array, index) {
 
 function longestName(bucketOfSloths) {
   // TODO: Your code here
+  var theSloth = {};
+  var names = [];
+  var max = 0;
+
+  for(var i = 0; i<bucketOfSloths.length; i++){
+  	for(var key in bucketOfSloths[i]){
+  		names.push();
+  		console.log(names.toString())
+  		
+  	}
+  }
 }
 
 //Good Luck :))
