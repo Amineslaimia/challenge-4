@@ -63,6 +63,16 @@ function addArraysForLoop(firstArray, secondArray) {
         }
     }
 
+
+    for (var i = 0; i <firstArray.length ; i++){
+    result.push(firstArray[i]+secondArray[i])
+    }
+
+      
+      return result;
+
+}
+
 //=========================================================== 3
 //Using recursion, return the sum of all of the positives numbers of an array of numbers.
 // posSum[1,-4,7,12] => 1 + 7 + 12 = 20
