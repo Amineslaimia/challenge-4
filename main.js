@@ -8,6 +8,32 @@
 
 function operateOn(firstNumber, secondNumber, operation) {
   //TODO: your code here
+  if(operation === 0) {
+
+  	return firstNumber + secondNumber;
+
+  }
+
+  if(operation === 1) {
+
+  	return firstNumber * secondNumber;
+
+  }
+
+  if(operation === 2) {
+
+  	if(secondNumber === 0) {
+
+  		return 'Cannot divide';
+
+  	}
+
+  	return firstNumber / secondNumber
+
+  }
+
+  return 'Nothing to Operate On';
+  
 }
 
 //========================================================== 2
@@ -18,10 +44,69 @@ function operateOn(firstNumber, secondNumber, operation) {
 
 function addArraysWhileLoop(firstArray, secondArray) {
   //TODO: your code here
+  var array = []
+  var i = 0;
+
+  if(firstArray.length < secondArray.length){
+
+  while (firstArray.length < secondArray.length){
+
+  	firstArray.push(1);
+
+  }
+
+}
+
+if(secondArray.length < firstArray.length){
+
+     while( secondArray.length < firstArray.length) {
+
+  	secondArray.push(1);
+  }
+
+  while(i < firstArray.length) {
+
+  	array.push(firstArray[i] + secondArray[i]);
+
+  	i++
+
+  }
+
+  return array;
+
 }
 
 function addArraysForLoop(firstArray, secondArray) {
   //TODO: you code here
+    var array = []
+ 	 var i = 0;
+
+  if(firstArray.length < secondArray.length){
+
+ for(var j = firstArray.length; j < secondArray.length; j++) {
+
+  	firstArray.push(1);
+
+  }
+
+}
+
+if(secondArray.length < firstArray.length) {
+
+     for(var k = secondArray.length; j < firstArray.length; k++) {
+
+  	secondArray.push(1);
+
+  }
+
+  for(var i = 0; i < firstArray.length; i++)
+
+  	array.push(firstArray[i] + secondArray[i]);
+
+  	}
+
+  	return array;
+
 }
 
 //=========================================================== 3
@@ -29,7 +114,31 @@ function addArraysForLoop(firstArray, secondArray) {
 // posSum[1,-4,7,12] => 1 + 7 + 12 = 20
 
 //TODO: you code here
+function sumPositives(array, sum,i) {
 
+	var sum = sum || 0;
+	var i = i || 0;
+
+	if(array.length === 0) {
+
+		return sum;
+
+	}
+	if(array[0] < 0) {
+
+		array.slice(1);
+
+	}
+
+	if(array[0] >= 0) {
+
+		sum = sum + array[0];
+
+	}
+
+	return sumPositives(array.slice(1),sum,i++);
+
+}
 //=========================================================== 4
 //I have a bucket of sloths. Each sloth is special and has a long name.
 // Below is an array called bucketOfSloths, containing all the information about my sloths.
@@ -46,6 +155,28 @@ var bucketOfSloths = [
 
 function fullName(array, index) {
   //your code is here
+  var fullName = '';
+
+  for (var i = 0; i < array.length; i++) {
+
+  	if(index === i) {
+  		
+  			fullName += array[i].name.first + ' ';
+
+  			if(array[i].name.middle !== undefined) {
+
+  				fullName += array[i].name.middle + ' '
+
+  			}
+
+  			fullName += array[i].name.last + ' ';
+
+  		}
+
+  }
+
+  return fullName;
+
 }
 
 //  b- Write a function that takes an array of objects (like bucketOfSloths)
@@ -55,8 +186,28 @@ function fullName(array, index) {
 //  longestName(bucketOfSloths);
 // => {name: {first: "Furry", middle: "Danger", last: "Assassin"}, age: 2}
 
+
+
 function longestName(bucketOfSloths) {
   // TODO: Your code here
+   var longName = fullName(bucketOfSloths,0);
+
+  for (var i = 0; i < bucketOfSloths.length; i++) {
+
+  	for (var key in bucketOfSloths[i]) {
+
+  	if(longName.length <= fullName(bucketOfSloths,i).length) {
+
+  		longName = bucketOfSloths[i];
+
+  		}
+
+  	}
+
 }
 
+  return longName;
+
+}
 //Good Luck :))
+
