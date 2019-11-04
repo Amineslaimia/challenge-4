@@ -66,18 +66,14 @@ function addArraysForLoop(firstArray, secondArray) {
 // posSum[1,-4,7,12] => 1 + 7 + 12 = 20
 
 //TODO: you code here
-var summation = 0;
-var i = 0;
+var result = 0;
+
 function posSum(array){
-  var myArr = array;
-  if(myArr.length === 0){
-    return 1;
+  if(array.length === 0){
+    return result;
   }
 
-  if(myArr[i] > 0){
-    i++;
-    return summation += myArr[i] + posSum(myArr.splice(i, 1));
-  }
+  return result = array + posSum(array.splice(1))
 }
 
 //=========================================================== 4
@@ -117,7 +113,19 @@ function fullName(array, index) {
 // => {name: {first: "Furry", middle: "Danger", last: "Assassin"}, age: 2}
 
 function longestName(bucketOfSloths) {
-  // TODO: Your code here
+  // Here We can use a variable to Save the max Length
+  var maxLength = bucketOfSloths[0];
+  // Iterate Over array
+  for(var i = 0; i < bucketOfSloths.length; i++){
+  // Check if fullName() of Array[i] .length is Bigger than maxLength  
+    if(fullName(bucketOfSloths[i]).length > maxLength){
+  // If So
+  // Save it     
+      maxLength = bucketOfSloths[i];
+    }
+  }
+  //Return it
+  return maxLength;
 }
 
 //Good Luck :))
