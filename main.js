@@ -8,6 +8,17 @@
 
 function operateOn(firstNumber, secondNumber, operation) {
   //TODO: your code here
+  if(operation === 0) {
+  	return firstNumber + secondNumber;
+  }
+  else if ( operation === 1) {
+  	return firstNumber* secondNumber;
+  }
+  else if (operation === 2) {
+  	return firstNumber / secondNumber;
+  } else {
+  	return 'Nothing to operate on'
+  }
 }
 
 //========================================================== 2
@@ -19,9 +30,30 @@ function operateOn(firstNumber, secondNumber, operation) {
 function addArraysWhileLoop(firstArray, secondArray) {
   //TODO: your code here
 }
+// i let it to the end but i'm out of time 
 
 function addArraysForLoop(firstArray, secondArray) {
   //TODO: you code here
+  var arr = [];
+  var arr2 = [];
+  var arr3 = arr.concat(arr2)
+  	if(firstArray.length === secondArray.length){				//if both arrays have the same length we iterate over both of them and we add each elements in the indexes to the other one 
+  for(var i = 0 ; i < firstArray.length; i++) {
+  	arr.push(firstArray[i]+secondArray[i])
+  	} 
+  	 if(firstArray.length > secondArray.length) {				// if first > second we slice the difference and we push it into new array
+  		arr2.push(firstArray.slice(secondArray.length));		// now we have to arrays with the same length we add them as before
+  		for(var x = 0 ; x < firstArray.length ; x++){
+  			arr.push(firstArray[x]+secondArray[x])		
+  		for(j =0 ; j < arr2.length ; j++) {						// we iterate over the array wich contains the difference and we add 1 each time 
+  			arr2[j] += 1
+  		}
+
+  		}
+  	}
+
+  }
+  return arr3;													// and we return both of them together if they have the same length arr3 = arr if they haven't the same length arr3 = arr+arr2
 }
 
 //=========================================================== 3
@@ -29,7 +61,18 @@ function addArraysForLoop(firstArray, secondArray) {
 // posSum[1,-4,7,12] => 1 + 7 + 12 = 20
 
 //TODO: you code here
-
+function sum(array) {
+	var arr = [];
+	for(var i = 0 ; i < array.length ; i++) {
+		if(array[i] >= 0) {
+			arr.push(array[i])
+		}
+	}
+	if(arr.length === 0) {
+		return 0
+	}
+	 return arr[0] + sum(arr.slice(1))
+}
 //=========================================================== 4
 //I have a bucket of sloths. Each sloth is special and has a long name.
 // Below is an array called bucketOfSloths, containing all the information about my sloths.
@@ -46,6 +89,11 @@ var bucketOfSloths = [
 
 function fullName(array, index) {
   //your code is here
+  var fullName ='';
+  for(var key in array[index].name) {
+  	fullName = fullName +' ' + array[index].name[key]
+  	}
+  	return fullName;
 }
 
 //  b- Write a function that takes an array of objects (like bucketOfSloths)
@@ -56,7 +104,12 @@ function fullName(array, index) {
 // => {name: {first: "Furry", middle: "Danger", last: "Assassin"}, age: 2}
 
 function longestName(bucketOfSloths) {
-  // TODO: Your code here
-}
-
+ var iterate = 0
+  for (var i = 1; i < bucketOfSloths.length ; i++){
+   if (fullName(bucketOfSloths, i).length > fullName(bucketOfSloths, iterate).length){
+    iterate = iterate + i
+  }
+  }
+  return bucketOfSloths[iterate];
+};
 //Good Luck :))
