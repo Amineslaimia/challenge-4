@@ -8,6 +8,15 @@
 
 function operateOn(firstNumber, secondNumber, operation) {
   //TODO: your code here
+  if(operation === 0){
+    return firstNumber + secondNumber
+  } else if(operation === 1){
+    return firstNumber * secondNumber
+  } else if (operation === 2){
+    return firstNumber / secondNumber
+  } else {
+    return 'Nothing to Operate On'
+  }
 }
 
 //========================================================== 2
@@ -17,11 +26,12 @@ function operateOn(firstNumber, secondNumber, operation) {
 //Write the function using while loop and for loop
 
 function addArraysWhileLoop(firstArray, secondArray) {
-  //TODO: your code here
+ 
 }
 
 function addArraysForLoop(firstArray, secondArray) {
-  //TODO: you code here
+ 
+
 }
 
 //=========================================================== 3
@@ -29,6 +39,12 @@ function addArraysForLoop(firstArray, secondArray) {
 // posSum[1,-4,7,12] => 1 + 7 + 12 = 20
 
 //TODO: you code here
+/////////////////////////////////////////////// failed
+function possSum(array){
+
+}
+
+
 
 //=========================================================== 4
 //I have a bucket of sloths. Each sloth is special and has a long name.
