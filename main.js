@@ -7,6 +7,17 @@
 //The function should never return undefined
 
 function operateOn(firstNumber, secondNumber, operation) {
+  var result;
+  if (operation === 0) {
+    result = firstNumber + secondNumber;
+  } else if (operation === 1) {
+    result = firstNumber * secondNumber;
+  } else if (operation === 2) {
+    result = firstNumber / secondNumber;
+  } else {
+      console.log('Nothing to Operate On');
+  }
+  return result ;
   //TODO: your code here
 }
 
@@ -21,7 +32,28 @@ function addArraysWhileLoop(firstArray, secondArray) {
 }
 
 function addArraysForLoop(firstArray, secondArray) {
-  //TODO: you code here
+//   //TODO: you code here
+  var result = [];
+  var cuts;
+  if (firstArray.length > secondArray.length){
+      cuts = firstArray.slice(secondArray.length);
+     for (var i = 0; i < cuts.length; i++) {
+          secondArray.push(1);
+      }
+    for (var i = 0; i < firstArray.length; i++) {
+      result.push(firstArray[i] + secondArray[i]);
+    }
+  }
+   if (firstArray.length < secondArray.length){
+      cuts = secondArray.slice(firstArray.length);
+     for (var i = 0; i < cuts.length; i++) {
+          firstArray.push(1);
+      }
+    for (var i = 0; i < secondArray.length; i++) {
+      result.push(firstArray[i] + secondArray[i]);
+    }
+  }
+  return result;
 }
 
 //=========================================================== 3
@@ -29,6 +61,17 @@ function addArraysForLoop(firstArray, secondArray) {
 // posSum[1,-4,7,12] => 1 + 7 + 12 = 20
 
 //TODO: you code here
+function posSum (array) {
+    if (array.length === 0) {
+        return;
+    }
+    for (i = 0; i < array.length; i++){
+        if (array[i] < 0) {
+            array.splice(i,1);
+        }
+    }
+   return array.splice(0, 1) + posSum(array);
+}
 
 //=========================================================== 4
 //I have a bucket of sloths. Each sloth is special and has a long name.
@@ -45,6 +88,8 @@ var bucketOfSloths = [
 // fullName(bucketOfSloths,0) //==> "Furry Danger Assassin"
 
 function fullName(array, index) {
+  // if () check for the key middle.
+  return array[index].name.first + ' ' + array[index].name.last;
   //your code is here
 }
 
@@ -57,6 +102,21 @@ function fullName(array, index) {
 
 function longestName(bucketOfSloths) {
   // TODO: Your code here
+  var arrayOfNames = [];
+  var indexes = [];
+  var name;
+  for (i = 0; i < bucketOfSloths.length; i++ ) {
+    name = fullName(bucketOfSloths, i);
+    arrayOfNames.push(name);
+    indexes.push(name.length);
+  }
+  console.log(arrayOfNames)
+   console.log(indexes)
+   
+return arrayOfNames.indexOf(Math.max(...indexes));
 }
+
+
+longestName(bucketOfSloths);
 
 //Good Luck :))
