@@ -78,8 +78,22 @@ function addArraysForLoop(firstArray, secondArray) {
 // posSum[1,-4,7,12] => 1 + 7 + 12 = 20
 
 //TODO: you code here
-/////////////////////////////////////////////// failed
+/////////////////////////////////////////////// failed , I still need more practice 
 function possSum(array){
+  var possitive = [];
+  var sum = 0
+
+for(var i = 0; i < array.length; i++){
+  if (array[i]>= 0){
+    possitive.push(array[i])
+  }
+}
+
+if(possitive.length === 0){
+  return sum;
+}
+
+return  sum +=  possitive[0] + possitive(array.shift[0])
 
 }
 
