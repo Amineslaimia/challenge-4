@@ -7,7 +7,16 @@
 //The function should never return undefined
 
 function operateOn(firstNumber, secondNumber, operation) {
-  //TODO: your code here
+  //If condition to check the value of the operation
+  if(operation === 0){
+    return  "the summation of  " + firstNumber + " and " + secondNumber + " is : " + firstNumber + secondNumber; 
+  } else if(operation === 1) {
+    return  "the multiplication of  " + firstNumber + " and " + secondNumber + " is : " + firstNumber * secondNumber;
+  } else if (operation === 2) {
+    return "the division of  " + firstNumber + " and " + secondNumber + " is : " + firstNumber / secondNumber;
+  } else { 
+    return "Nothing to Operate On"; }
+
 }
 
 //========================================================== 2
@@ -17,11 +26,58 @@ function operateOn(firstNumber, secondNumber, operation) {
 //Write the function using while loop and for loop
 
 function addArraysWhileLoop(firstArray, secondArray) {
-  //TODO: your code here
+  //declare an empty array + initialise the counters for the while loop
+  var arr = [];
+  var i = 0;
+  var j = 0;
+  var k = 0;
+
+  //create while loop to add element if the length of second array is > than the first array
+  while (firstArray.length < secondArray.length) {
+    firstArray.push(1);
+      i++;
+  } 
+
+//create while loop to add element if the length of first array is > than the second array
+   while (secondArray.length < firstArray.length) {
+    secondArray.push(1);
+    j++;
+    }
+
+    //create while loop to sum the elements of the 2 arrays with matched indexes
+    while( k < firstArray.length ) {
+      arr.push(firstArray[k] + secondArray[k])
+      k++;
+    }
+ //returning the array 
+  return arr;
 }
 
 function addArraysForLoop(firstArray, secondArray) {
-  //TODO: you code here
+  //declare an empty array 
+   var arr = [];
+      
+      //if statement to check the length of the first array
+      if(firstArray.length < secondArray.length){
+        //foor loop to add element if the length of second array is > than the first array
+        for (var i = 0; i < firstArray.length; i++) {
+            firstArray.push(1);
+        }
+
+      //if statement to check the length of the second array
+      } else if (secondArray.length < firstArray.length){
+        //foor loop to add element if the length of first array is > than the second array
+        for (var i = 0; i < firstArray.length; i++) {
+        secondArray.push(1);
+      }
+   }
+   //foor loop to sum the elements of the 2 arrays with matched indexes
+   for (var i = 0; i < firstArray.length; i++) {
+      arr.push(firstArray[i] + secondArray[i])
+   }
+
+    //returning the array 
+   return arr;
 }
 
 //=========================================================== 3
@@ -29,6 +85,16 @@ function addArraysForLoop(firstArray, secondArray) {
 // posSum[1,-4,7,12] => 1 + 7 + 12 = 20
 
 //TODO: you code here
+function sum(array) {
+
+  if(array[0]<0){
+    return 0;
+  }
+  if (array[0] > 0) {
+  array.slice(1)
+  }
+  return array[0] + sum(arr);
+}
 
 //=========================================================== 4
 //I have a bucket of sloths. Each sloth is special and has a long name.
@@ -45,7 +111,9 @@ var bucketOfSloths = [
 // fullName(bucketOfSloths,0) //==> "Furry Danger Assassin"
 
 function fullName(array, index) {
-  //your code is here
+
+  return array[index].name.first + " " +  array[index].name.middle + " " + array[index].name.last;
+  
 }
 
 //  b- Write a function that takes an array of objects (like bucketOfSloths)
@@ -56,7 +124,15 @@ function fullName(array, index) {
 // => {name: {first: "Furry", middle: "Danger", last: "Assassin"}, age: 2}
 
 function longestName(bucketOfSloths) {
+
   // TODO: Your code here
+  var obj = {};
+  for (var i = 0; i < bucketOfSloths.length; i++) {
+    if(fullName(bucketOfSloths, i) >fullName(bucketOfSloths, i + 1) ) {
+      obj.name = bucketOfSloths[i].name;
+    }
+  }
+  return obj;
 }
 
 //Good Luck :))
