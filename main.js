@@ -14,7 +14,7 @@ function operateOn(firstNumber, secondNumber, operation) {
   	return firstNumber * secondNumber;
   }
   else if(operation===2) {
-  	return firstNumber + secondNumber;
+  	return firstNumber / secondNumber;
   }
   else {
   	return "Nothing to Operate On";
@@ -60,7 +60,7 @@ function addArraysForLoop(firstArray, secondArray) {
   	minLength = secondArray.length;
   	sliced=firstArray.silce(minLength)
   }
-  
+
   for (var i=0; i<minLength; i++) {
   	result.push(firstArray[i]+secondArray[i])
   }
