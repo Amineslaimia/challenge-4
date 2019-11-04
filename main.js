@@ -8,6 +8,18 @@
 
 function operateOn(firstNumber, secondNumber, operation) {
   //TODO: your code here
+  if(operation === 0 ){
+    return firstNumber+secondNumber;
+  }
+  else if (operation === 1 ){
+    return firstNumber*secondNumber;
+  }
+  else if(operation === 2 ){
+    return firstNumber / secondNumber;
+  }
+  else{
+    return " Nothing to Operate on "
+  }
 }
 
 //========================================================== 2
@@ -18,10 +30,67 @@ function operateOn(firstNumber, secondNumber, operation) {
 
 function addArraysWhileLoop(firstArray, secondArray) {
   //TODO: your code here
+    var arr = [];
+  if(firstArray.length > secondArray.length){
+    var i = 0
+     while(  i < firstArray.length ){
+         if (firstArray[i] === undefined ) {
+           firstArray[i] = 1 ;
+         }
+         if (secondArray[i] === undefined){
+           secondArray[i] = 1
+         }
+         arr.push(firstArray[i]+secondArray[i]);
+
+         i++
+     }
+   return arr
+ }
+  if(firstArray.length < secondArray.length){
+  var i = 0 ;
+     while(  i < secondArray.length ){
+         if (firstArray[i] === undefined ) {
+           firstArray[i] = 1 ;
+         }
+         if (secondArray[i] === undefined){
+           secondArray[i] = 1
+         }
+         arr.push(firstArray[i]+secondArray[i]);
+
+         i++
+     }
+   return arr
+  }
 }
 
 function addArraysForLoop(firstArray, secondArray) {
   //TODO: you code here
+  var arr = [];
+  if(firstArray.length > secondArray.length){
+   for( var i = 0 ; i < firstArray.length ; i++){
+       if (firstArray[i] === undefined ) {
+         firstArray[i] = 1 ;
+       }
+       if (secondArray[i] === undefined){
+         secondArray[i] = 1
+       }
+       arr.push(firstArray[i]+secondArray[i]);
+   }
+   return arr
+ }
+   if(firstArray.length < secondArray.length){
+   for( var i = 0 ; i < secondArray.length ; i++){
+       if (firstArray[i] === undefined ) {
+         firstArray[i] = 1 ;
+       }
+       if (secondArray[i] === undefined){
+         secondArray[i] = 1
+       }
+       arr.push(firstArray[i]+secondArray[i]);
+   }
+   return arr
+ }
+
 }
 
 //=========================================================== 3
@@ -29,7 +98,15 @@ function addArraysForLoop(firstArray, secondArray) {
 // posSum[1,-4,7,12] => 1 + 7 + 12 = 20
 
 //TODO: you code here
-
+function sum(arr){
+  if(arr.length === 0 ){
+    return 0 ;
+  }
+  if(arr[0]>=0){
+    return arr[0]+sum(arr.slice(1))
+  }
+  return sum(arr.slice(1))
+}
 //=========================================================== 4
 //I have a bucket of sloths. Each sloth is special and has a long name.
 // Below is an array called bucketOfSloths, containing all the information about my sloths.
@@ -46,6 +123,10 @@ var bucketOfSloths = [
 
 function fullName(array, index) {
   //your code is here
+  if(array[index].name.middle===undefined){
+    array[index].name.middle=""
+  }
+  return array[index].name.first+" "+array[index].name.middle+" "+array[index].name.last
 }
 
 //  b- Write a function that takes an array of objects (like bucketOfSloths)
@@ -56,7 +137,21 @@ function fullName(array, index) {
 // => {name: {first: "Furry", middle: "Danger", last: "Assassin"}, age: 2}
 
 function longestName(bucketOfSloths) {
-  // TODO: Your code here
+  var arr=[];
+  for(var i = 0 ; i < bucketOfSloths.length ; i++){
+    if(bucketOfSloths[i].name.middle===undefined){
+    bucketOfSloths[i].name.middle=""
+    }
+    arr.push(bucketOfSloths[i].name);
+  } 
+  var maxObj=arr[0];
+  var max = arr[0].first+arr[0].middle+arr[0].last;
+   for(var j = 0 ; j < arr.length ; j++) {
+    var min = arr[j].first+arr[j].middle+arr[j].last
+    if(max.length < min.length  )    
+         maxObj = arr[j]
+     }
+  return  maxObj
 }
 
 //Good Luck :))
