@@ -114,6 +114,13 @@ var bucketOfSloths = [
 // fullName(bucketOfSloths,0) //==> "Furry Danger Assassin"
 
 function fullName(array, index) {
+  for (var i = 0; i <= array.length; i++){
+    for(var i in array){
+      if ( key[] === index){
+        /////////////////////////////// time is up
+      }
+    }
+  }
   //your code is here
 }
 
