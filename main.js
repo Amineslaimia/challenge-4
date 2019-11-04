@@ -6,8 +6,16 @@
 //If the operation number is other than that, it should return “Nothing to Operate On”
 //The function should never return undefined
 
+//it takes 3 parameters the first 2 is numbers and the third one is operation
+//it uses a switch statement to check the value of the operation.
 function operateOn(firstNumber, secondNumber, operation) {
   //TODO: your code here
+  switch(operation){
+    case 0: return firstNumber + secondNumber;
+    case 1: return firstNumber * secondNumber;
+    case 2: return firstNumber / secondNumber;
+    default: return 'Nothing to Operate On'
+  }
 }
 
 //========================================================== 2
@@ -16,12 +24,38 @@ function operateOn(firstNumber, secondNumber, operation) {
 //If the arrays are of different length the function should add 1 to the elements that don’t having matching indexes in the other
 //Write the function using while loop and for loop
 
+//both functions takes two parameters of array of numbers
+//and it returns an array of sum matching indecies;
 function addArraysWhileLoop(firstArray, secondArray) {
   //TODO: your code here
+  var result = [];
+  var i = 0;
+  while(i < firstArray.length || i < secondArray.length){
+    if(firstArray[i] === undefined){
+      result.push(secondArray[i] + 1)
+    }else if( secondArray[i] === undefined) {
+      result.push(firstArray[i] + 1)
+    }else{
+      result.push(firstArray[i] + secondArray[i])
+    }
+    i++;
+  }
+  return result
 }
 
 function addArraysForLoop(firstArray, secondArray) {
   //TODO: you code here
+  var result = []
+  for(var i = 0; i < firstArray.length || i < secondArray.length; i++){
+    if(firstArray[i] === undefined){
+      result.push(secondArray[i] + 1)
+    }else if( secondArray[i] === undefined) {
+      result.push(firstArray[i] + 1)
+    }else{
+      result.push(firstArray[i] + secondArray[i])
+    }
+  }
+  return result;
 }
 
 //=========================================================== 3
@@ -29,6 +63,18 @@ function addArraysForLoop(firstArray, secondArray) {
 // posSum[1,-4,7,12] => 1 + 7 + 12 = 20
 
 //TODO: you code here
+//this function takes an array of numbers and it return the sum of positive number only.
+//it minimize the length of the array till it finish.
+function sum(arr) {
+  if(!arr.length){
+    return 0
+  }
+  console.log(arr[0], arr)
+  if(arr[0] > 0){
+    return arr[0] + sum(arr.slice(1));
+  }
+  return sum(arr.slice(1))
+}
 
 //=========================================================== 4
 //I have a bucket of sloths. Each sloth is special and has a long name.
@@ -44,8 +90,15 @@ var bucketOfSloths = [
 // a- write a function fullName that takes index number and array as input and return the full name as string
 // fullName(bucketOfSloths,0) //==> "Furry Danger Assassin"
 
+//this function takes an array of objects and an index of specefic object..
+// then it check if it has middle name or not and it return a string of full name of the object;
 function fullName(array, index) {
   //your code is here
+  var current = array[index].name;
+  if(current.middle != undefined) {
+    return current.first + ' ' + current.middle + ' ' + current.last;
+  }
+  return current.first + ' ' + current.last;
 }
 
 //  b- Write a function that takes an array of objects (like bucketOfSloths)
@@ -55,8 +108,21 @@ function fullName(array, index) {
 //  longestName(bucketOfSloths);
 // => {name: {first: "Furry", middle: "Danger", last: "Assassin"}, age: 2}
 
+//this function takes an array of object as parameter.
+//then iterates the array and call the full length function then calculate the length of the full name
+// and it return an object of the longest full name length
 function longestName(bucketOfSloths) {
   // TODO: Your code here
+  var longest = 0
+  var result = {}
+  for (var i = 0; i < bucketOfSloths.length; i++) {
+    var current = fullName(bucketOfSloths, i);
+    if(current.length > longest){
+      longest = current.length;
+      result = bucketOfSloths[i]
+    }
+  }
+  return result;
 }
 
 //Good Luck :))
