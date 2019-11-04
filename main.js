@@ -7,7 +7,24 @@
 //The function should never return undefined
 
 function operateOn(firstNumber, secondNumber, operation) {
-  //TODO: your code here
+  var result = 0;
+  if(firstNumber === undefined || secondNumber === undefined || operation === undefined){
+    return 'Invalid';
+  }
+  if(operation === 0){
+    return result = firstNumber + secondNumber;
+  }
+  if(operation === 1){
+    return result = firstNumber * secondNumber;
+  }
+  if(operation === 2){
+      if(secondNumber === 0){
+        return 'Invalid'
+      } else {
+          return result = firstNumber / secondNumber
+      }
+  }
+  return 'Nothing To Operate On';
 }
 
 //========================================================== 2
