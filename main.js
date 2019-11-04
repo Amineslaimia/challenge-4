@@ -7,8 +7,28 @@
 //The function should never return undefined
 
 function operateOn(firstNumber, secondNumber, operation) {
-  //TODO: your code here
-}
+  var result = 0;
+  if(operation === 0) {
+    result = firstNumber + secondNumber ;
+   }
+  else if(operation === 1) {
+    result = firstNumber * secondNumber;
+   }
+  else if(operation === 2) {
+    result = firstNumber / secondNumber;
+   }
+  else if(operation === undefined) {
+    “Nothing to Operate On”;
+   }
+
+  else  {
+    return  “Nothing to Operate On”;
+     }
+    return result;  
+  }
+
+  
+
 
 //========================================================== 2
 //Write a function called addArrays that takes two arrays as parameters (firstArray, secondArray)
@@ -17,18 +37,52 @@ function operateOn(firstNumber, secondNumber, operation) {
 //Write the function using while loop and for loop
 
 function addArraysWhileLoop(firstArray, secondArray) {
-  //TODO: your code here
+var result = [];
+var i = 0 ;
+var j = 0;
+while( i < firstArray.length){
+  while( j < secondArray.length) {
+    if( i === j) {
+       result.push(firstArray[i] + secondArray[j]);
+       }
+       j++;
+       }
+        i++;
+
+       }
+       return result;
 }
+
 
 function addArraysForLoop(firstArray, secondArray) {
-  //TODO: you code here
+  var result = [];
+  for(var i = 0 ; i < firstArray.length; i++) {
+    for(var j = 0 ; j < secondArray.length; j ++ ) {
+       // if(firstArray.length > secondArray.length) {
+       //  firstArray[i] = firstArray.length + 1 ;
+       // }
+       // else if(secondArray.length > secondArray.length) {
+       //  secondArray[j] = secondArray.length + 1 ;
+       // }
+         if(i === j) {
+        console.log(firstArray[i] + secondArray[j]);
+        result.push(firstArray[i] + secondArray[j]);
+      }
+    }
+  }
+  return result;
 }
-
+//
 //=========================================================== 3
 //Using recursion, return the sum of all of the positives numbers of an array of numbers.
 // posSum[1,-4,7,12] => 1 + 7 + 12 = 20
 
-//TODO: you code here
+function posSum(array) {
+  if(array.length) {
+
+  }
+
+}
 
 //=========================================================== 4
 //I have a bucket of sloths. Each sloth is special and has a long name.
@@ -45,7 +99,16 @@ var bucketOfSloths = [
 // fullName(bucketOfSloths,0) //==> "Furry Danger Assassin"
 
 function fullName(array, index) {
-  //your code is here
+  var result = '';
+  for(var i = 0 ; i < array.length; i++) {
+    for(var key in array[i]) {
+      if( index === i) {
+         // console.log(array[index][key]);
+         result = array[index][names] + ' ';
+      }
+    }
+  }
+  return result ;
 }
 
 //  b- Write a function that takes an array of objects (like bucketOfSloths)
