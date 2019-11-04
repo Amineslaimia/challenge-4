@@ -8,6 +8,16 @@
 
 function operateOn(firstNumber, secondNumber, operation) {
   //TODO: your code here
+  if(operation === 0){
+    return firstNumber + secondNumber
+  }
+  if(operation === 1){
+    return firstNumber * secondNumber
+  }
+  if( operation === 2) {
+    return firstNumber / secondNumber
+  }
+  return "Nothing to Operate On"
 }
 
 //========================================================== 2
@@ -18,17 +28,57 @@ function operateOn(firstNumber, secondNumber, operation) {
 
 function addArraysWhileLoop(firstArray, secondArray) {
   //TODO: your code here
+  var result = [];
+  var i = 0;
+  //permetition
+  if(secondArray.length < firstArray.length){
+    [firstArray, secondArray] = [secondArray, firstArray]
+  }
+  while (i < firstArray.length){
+    result.push(firstArray[i] + secondArray[i]);
+    i++
+  }
+  if(secondArray.length > result.length){
+    while(i < secondArray.length){
+      result.push(secondArray[i] + 1)
+      i++
+    }
+  }
+  return result;
 }
 
 function addArraysForLoop(firstArray, secondArray) {
   //TODO: you code here
-}
+  var result = [];
 
+  //permetition 
+  if(secondArray.length < firstArray.length){
+    [firstArray, secondArray] = [secondArray, firstArray]
+  }
+  for(var i = 0; i < firstArray.length; i++){
+    result.push(firstArray[i] + secondArray[i]);
+  }
+  if(secondArray.length > result.length){
+    for (var i = result.length; i < secondArray.length; i++){
+      result.push(secondArray[i] + 1)
+    }
+  }
+  return result;
+} 
 //=========================================================== 3
 //Using recursion, return the sum of all of the positives numbers of an array of numbers.
 // posSum[1,-4,7,12] => 1 + 7 + 12 = 20
 
 //TODO: you code here
+function posSum(tab){
+  if(tab.length === 0){
+    return 0
+  }
+  if(tab[0]> 0){
+    return tab[0] + posSum(tab.slice(1))
+  }
+  return posSum(tab.slice(1))
+}
 
 //=========================================================== 4
 //I have a bucket of sloths. Each sloth is special and has a long name.
@@ -46,6 +96,17 @@ var bucketOfSloths = [
 
 function fullName(array, index) {
   //your code is here
+  var result = ""
+  for(var i = 0 ; i < array.length ; i++){
+    if(i === index){
+      var obj = array[i].name
+      for(key in obj){
+          result += obj[key] + " "
+      }
+    
+    }
+  }
+ return result
 }
 
 //  b- Write a function that takes an array of objects (like bucketOfSloths)
@@ -57,6 +118,14 @@ function fullName(array, index) {
 
 function longestName(bucketOfSloths) {
   // TODO: Your code here
+  var result = []
+  var LongStringIndex = 0  
+  for (var  i = 0 ; i <bucketOfSloths.length ; i++ ){
+    if(fullName(bucketOfSloths,i) > fullName(bucketOfSloths,LongStringIndex)){
+      LongStringindex = i
+    }
+  }
+  return bucketOfSloths[LongStringIndex]
 }
 
 //Good Luck :))
