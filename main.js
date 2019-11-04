@@ -7,7 +7,20 @@
 //The function should never return undefined
 
 function operateOn(firstNumber, secondNumber, operation) {
-  //TODO: your code here
+  var result = "";
+  if(operation === 0){
+    var sum = firstNumber + secondNumber;
+    result = firstNumber + " + " + secondNumber + " = "  + sum
+  }else if (operation === 1){
+    var product = firstNumber * secondNumber;
+    result = firstNumber + " * " + secondNumber + " = "  + product;
+  }else if(operation === 2){
+    var division =firstNumber % secondNumber;
+    result = firstNumber + " / " + secondNumber + " = "  + division;
+  }else{
+    result = "Nothing to Operate On"
+  }
+  return result;
 }
 
 //========================================================== 2
@@ -17,11 +30,22 @@ function operateOn(firstNumber, secondNumber, operation) {
 //Write the function using while loop and for loop
 
 function addArraysWhileLoop(firstArray, secondArray) {
-  //TODO: your code here
+var i = 0;
+while(i < firstArray.length){
+  
+}
 }
 
 function addArraysForLoop(firstArray, secondArray) {
-  //TODO: you code here
+  var array = [];
+  var newElement ;
+  for (var i = 0; i < firstArray.length ; i ++){
+    for(var j = 0; j < secondArray ; j ++){
+      if(firstArray[i] === secondArray[j]){
+        array.push(firstArray[i])
+    }
+  }
+  return array;
 }
 
 //=========================================================== 3
@@ -29,6 +53,15 @@ function addArraysForLoop(firstArray, secondArray) {
 // posSum[1,-4,7,12] => 1 + 7 + 12 = 20
 
 //TODO: you code here
+function posSum(array){
+if(array.length === 0){
+  return 0
+}else if(array[0] > 0){{
+ return array[0] + posSum(array.slice(1));
+  }
+}
+}
+
 
 //=========================================================== 4
 //I have a bucket of sloths. Each sloth is special and has a long name.
@@ -45,7 +78,11 @@ var bucketOfSloths = [
 // fullName(bucketOfSloths,0) //==> "Furry Danger Assassin"
 
 function fullName(array, index) {
-  //your code is here
+  if(array[index].name['middle'] !== undefined){
+          return array[index].name['first'] +" "+ array[index].name['middle'] + " "+ array[index].name['last']
+  }else
+          return array[index].name['first'] +" "+ array[index].name['last']
+
 }
 
 //  b- Write a function that takes an array of objects (like bucketOfSloths)
@@ -57,6 +94,11 @@ function fullName(array, index) {
 
 function longestName(bucketOfSloths) {
   // TODO: Your code here
+  var result = fullName(array, index);
+  var longName = fullName(array, i);
+  for(var i = 0 ; i < bucketOfSloths.length ; i ++){
+    if (array[i].fullName(array, index) )
+  }
 }
 
 //Good Luck :))
