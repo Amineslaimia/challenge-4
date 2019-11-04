@@ -34,11 +34,31 @@ function operateOn(firstNumber, secondNumber, operation) {
 //Write the function using while loop and for loop
 
 function addArraysWhileLoop(firstArray, secondArray) {
-  //TODO: your code here
+  var newArr = [];
+  var result = 0;
+  var i = 0;
+  var j = 0;
+  while(i < firstArray.length){
+    result = firstArray[i] + secondArray[i];
+    newArr.push(result);
+    i++;
+  }
+
+  return newArr;
 }
 
 function addArraysForLoop(firstArray, secondArray) {
-  //TODO: you code here
+  var newArr = [];
+  var result = 0;
+  for(var i = 0; i < firstArray.length; i++){
+    for(var j = 0; j < secondArray.length; j++){
+      if(i === j){
+        result = firstArray[i] + secondArray[j];
+        newArr.push(result);
+      }
+    }
+  }
+  return newArr;
 }
 
 //=========================================================== 3
@@ -46,6 +66,19 @@ function addArraysForLoop(firstArray, secondArray) {
 // posSum[1,-4,7,12] => 1 + 7 + 12 = 20
 
 //TODO: you code here
+var summation = 0;
+var i = 0;
+function posSum(array){
+  var myArr = array;
+  if(myArr.length === 0){
+    return 1;
+  }
+
+  if(myArr[i] > 0){
+    i++;
+    return summation += myArr[i] + posSum(myArr.splice(i, 1));
+  }
+}
 
 //=========================================================== 4
 //I have a bucket of sloths. Each sloth is special and has a long name.
@@ -62,7 +95,18 @@ var bucketOfSloths = [
 // fullName(bucketOfSloths,0) //==> "Furry Danger Assassin"
 
 function fullName(array, index) {
-  //your code is here
+  var newStr = '';
+  for(var i = 0; i < array.length; i++){
+    if(i === index){
+      for(var key in array[i]){
+        if(key === 'name'){
+          newStr += array[i][key].first + ' ' + array[i][key].middle + ' ' + array[i][key].last; 
+        }
+      }
+    }
+    
+  }
+  return newStr
 }
 
 //  b- Write a function that takes an array of objects (like bucketOfSloths)
