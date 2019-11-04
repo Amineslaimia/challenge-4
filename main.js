@@ -26,13 +26,42 @@ function operateOn(firstNumber, secondNumber, operation) {
 //Write the function using while loop and for loop
 
 function addArraysWhileLoop(firstArray, secondArray) {
- 
+  var result = []
+  var i = 0
+
+  while(firstArray.length > secondArray.length){
+    secondArray.push(1)
+  }
+  while(secondArray.length > firstArray.length){
+    firstArray.push(1)
+  }
+
+  while (i !== firstArray.length){
+    result.push(firstArray[i]+secondArray[i])
+    i++
+  }
+  return result
 }
+
 
 function addArraysForLoop(firstArray, secondArray) {
- 
+  var result = [];
 
-}
+    if (firstArray.length > secondArray.length){
+       for (var i = secondArray.length ; i < firstArray.length; i++ ){
+
+        secondArray.push(1)
+
+        }
+    }
+
+    if (secondArray.length > firstArray.length){
+       for (var i = firstArray.length ; i < secondArray.length; i++ ){
+
+        firstArray.push(1)
+
+        }
+    }
 
 //=========================================================== 3
 //Using recursion, return the sum of all of the positives numbers of an array of numbers.
