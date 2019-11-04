@@ -7,7 +7,24 @@
 //The function should never return undefined
 
 function operateOn(firstNumber, secondNumber, operation) {
-  //TODO: your code here
+  if (operation === undefined) {
+    return 'please select an opertaion!'
+  }
+  if (operation === 0) {
+    return firstNumber + secondNumber;
+  }
+
+  if (operation === 1) {
+    return firstNumber * secondNumber;
+  }
+
+  if (operation === 2 && secondNumber !== 0) {
+    return firstNumber / secondNumber
+  } else {
+    return 'cannot divide on zero!';
+  }
+
+  return "Nothing to Operate On";
 }
 
 //========================================================== 2
