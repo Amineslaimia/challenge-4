@@ -7,20 +7,60 @@
 //The function should never return undefined
 
 function operateOn(firstNumber, secondNumber, operation) {
+	var result;
+	if (operation === 0) {
+		result = firstNumber + secondNumber;
+	}
+	else if (operation === 1) {
+		result = firstNumber * secondNumber;
+	}
+	else if (operation === 2) {
+		result = firstNumber / secondNumber
+	}
+	else {
+		return "Nothing to Operate On";
+	}
+
+	return result;
   //TODO: your code here
 }
 
 //========================================================== 2
 //Write a function called addArrays that takes two arrays as parameters (firstArray, secondArray)
 //The function adds the elements with matching indexes to each other and returns the results in an array
-//If the arrays are of different length the function should add 1 to the elements that don’t having matching indexes in the other
+//If the arrays are of different length the function should add 1 to the elements that don’t having matching indexes 
+//in the other
 //Write the function using while loop and for loop
 
 function addArraysWhileLoop(firstArray, secondArray) {
+	var i = 0;
+	var j = 0;
+	var tab = [];
+
+	while(i < firstArray.length) {
+		while (j < secondArray.length) {
+			if(i === j) {
+				console.log(firstArray[i] + secondArray[j]);
+			}
+			j++;
+		}
+		i++;
+	}
+	return tab;
   //TODO: your code here
 }
 
 function addArraysForLoop(firstArray, secondArray) {
+	var tab = [];
+	for (var i = 0; i < firstArray.length; i++) {
+		for (var j = 0; j < secondArray.length; j++) {
+			if(j === i) {
+				tab.push(firstArray[i] + secondArray[j])
+			}
+		}
+	}
+	
+	return tab;
   //TODO: you code here
 }
 
@@ -29,6 +69,15 @@ function addArraysForLoop(firstArray, secondArray) {
 // posSum[1,-4,7,12] => 1 + 7 + 12 = 20
 
 //TODO: you code here
+function posSum(array) {
+	var sum = 0;
+	for (var i = 0; i < array.length; i++) {
+		if (array[i] > 0 ){
+			sum += array[i];
+		}
+	}
+	return sum 
+}
 
 //=========================================================== 4
 //I have a bucket of sloths. Each sloth is special and has a long name.
@@ -45,6 +94,12 @@ var bucketOfSloths = [
 // fullName(bucketOfSloths,0) //==> "Furry Danger Assassin"
 
 function fullName(array, index) {
+	if(array[index]['name']['middle'] === undefined) {
+		return array[index]['name']['first'] + " " + array[index]['name']['last'];
+	}
+	
+	return array[index]['name']['first'] + " " + array[index]['name']['middle'] + " " + array[index]['name']['last'];  
+
   //your code is here
 }
 
@@ -56,7 +111,11 @@ function fullName(array, index) {
 // => {name: {first: "Furry", middle: "Danger", last: "Assassin"}, age: 2}
 
 function longestName(bucketOfSloths) {
-  // TODO: Your code here
+	for(var key in bucketOfSloths){
+
+	console.log(bucketOfSloths[key]['name'].first.length)
+ 
+	}
 }
 
 //Good Luck :))
