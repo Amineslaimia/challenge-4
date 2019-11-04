@@ -34,11 +34,48 @@ function operateOn(firstNumber, secondNumber, operation) {
 //Write the function using while loop and for loop
 
 function addArraysWhileLoop(firstArray, secondArray) {
-  //TODO: your code here
+  var result = [];
+  var i = 0;
+  var maxLength = secondArray.length;
+  
+  if (firstArray.length > secondArray.length) {
+    maxLength = firstArray.length;
+  } 
+
+  while(i < maxLength){
+    if (firstArray[i] === undefined) {
+      result.push(1 + secondArray[i] )
+    } else if(secondArray[i] === undefined) {
+      result.push(1 + firstArray[i] )
+    } else {
+    result.push(firstArray[i] + secondArray[i] )
+    }
+    i++;
+  }
+
+  return result;
 }
 
 function addArraysForLoop(firstArray, secondArray) {
-  //TODO: you code here
+  var result = [];
+  var i = 0;
+  var maxLength = secondArray.length;
+
+  if (firstArray.length > secondArray.length) {
+    maxLength = firstArray.length;
+  } 
+
+  for (var i = 0; i < maxLength; i++) {
+    if (firstArray[i] === undefined) {
+      result.push(1 + secondArray[i] )
+    } else if(secondArray[i] === undefined) {
+      result.push(1 + firstArray[i] )
+    } else {
+    result.push(firstArray[i] + secondArray[i] )
+    }
+  }
+
+  return result;
 }
 
 //=========================================================== 3
