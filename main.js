@@ -7,7 +7,22 @@
 //The function should never return undefined
 
 function operateOn(firstNumber, secondNumber, operation) {
-  //TODO: your code here
+  var op = {
+    0: function(a, b) {
+      return a+b;
+    },
+    1: function(a, b) {
+      return a*b
+    },
+    2: function(a, b) {
+      return a/b
+    },
+  }
+  if (op.hasOwnProperty(operation)){
+    return op[operation](firstNumber, secondNumber);
+  }
+  return "Nothing to operate on"
+
 }
 
 //========================================================== 2
@@ -17,18 +32,67 @@ function operateOn(firstNumber, secondNumber, operation) {
 //Write the function using while loop and for loop
 
 function addArraysWhileLoop(firstArray, secondArray) {
-  //TODO: your code here
+  result = [];
+  var maxLength = firstArray.length
+  var minLength = secondArray.length
+  if (secondArray > firstArray){
+    maxLength = secondArray.length
+    minLength = firstArray.length
+  }
+  count = 0
+  while (count < maxLength){
+    if (count<minLength){
+      result.push(firstArray[count]+secondArray[count])
+    } else {
+      if (firstArray[count] === undefined) {
+        result.push(secondArray[count]+1)
+      } else {
+        result.push(firstArray[count]+1)
+      }
+    }
+    count++
+  }
+  return result
 }
 
 function addArraysForLoop(firstArray, secondArray) {
-  //TODO: you code here
+  result = [];
+  var maxLength = firstArray.length
+  var minLength = secondArray.length
+  if (secondArray > firstArray){
+    maxLength = secondArray.length
+    minLength = firstArray.length
+  }
+
+  for (var i = 0; i < maxLength; i++) {
+    if (i<minLength){
+      result.push(firstArray[i]+secondArray[i])
+    } else {
+      if (firstArray[i] === undefined) {
+        result.push(secondArray[i]+1)
+      } else {
+        result.push(firstArray[i]+1)
+      }
+    }
+  }
+  return result
 }
 
 //=========================================================== 3
 //Using recursion, return the sum of all of the positives numbers of an array of numbers.
 // posSum[1,-4,7,12] => 1 + 7 + 12 = 20
 
-//TODO: you code here
+function posSum(array) {
+  if (array.length === 0) {
+    return 0
+  }
+  if (array[0]>0){
+    return array.shift() + posSum(array)
+  } else {
+    array.shift();
+    return posSum(array)
+  }
+}
 
 //=========================================================== 4
 //I have a bucket of sloths. Each sloth is special and has a long name.
@@ -45,7 +109,11 @@ var bucketOfSloths = [
 // fullName(bucketOfSloths,0) //==> "Furry Danger Assassin"
 
 function fullName(array, index) {
-  //your code is here
+  var result = ""
+  for (var key in array[index].name){
+    result += " " + array[index].name[key]
+  }
+  return result.slice(1)
 }
 
 //  b- Write a function that takes an array of objects (like bucketOfSloths)
@@ -56,7 +124,13 @@ function fullName(array, index) {
 // => {name: {first: "Furry", middle: "Danger", last: "Assassin"}, age: 2}
 
 function longestName(bucketOfSloths) {
-  // TODO: Your code here
+  tmpIndex = 0
+  for (var i = 1; i < bucketOfSloths.length ; i++){
+    if (fullName(bucketOfSloths, i).length > fullName(bucketOfSloths, tmpIndex).length){
+      tmpIndex = i
+    }
+  }
+  return bucketOfSloths[tmpIndex];
 }
 
 //Good Luck :))
