@@ -8,7 +8,24 @@
 
 function operateOn(firstNumber, secondNumber, operation) {
   //TODO: your code here
+  // start by control the type of furstNumber and secondNumber to avoid that the function return undefined
+  if ( typeof(firstNumber) === "number" && typeof(secondNumber) === "number") {
+  if(operation === 0){
+  	return firstNumber + secondNumber ;
+  }else 
+  if(operation === 1){
+  	return firstNumber * secondNumber ;
+  }
+  else if(operation === 2){
+  	return firstNumber / secondNumber ;
+  }
+  
+  		return "Nothing to Operate On";
+  }
+  return "Nothing to Operate On";
 }
+  
+
 
 //========================================================== 2
 //Write a function called addArrays that takes two arrays as parameters (firstArray, secondArray)
@@ -17,12 +34,53 @@ function operateOn(firstNumber, secondNumber, operation) {
 //Write the function using while loop and for loop
 
 function addArraysWhileLoop(firstArray, secondArray) {
-  //TODO: your code here
+  
+}
+function addArraysForLoop(firstArray, secondArray) {
+  var resultArr = [''];
+  
+  if(firstArray.length === secondArray.length){
+  	for (var i = 0; i < firstArray.length; i++) {
+  		for (var j = 0; i < secondArray.length; j++) {
+  			
+  				resultArr.push(firstArray[i] + secondArray[j]);
+  			
+
+  		}
+  	}
+  	
+  }
+
+  	if(firstArray.length > secondArray.length){
+  		for (var i = 0; i < firstArray.length; i++) {
+  		for (var j = 0; i < secondArray.length; j++) {
+  			
+  				resultArr.push(firstArray[i] + secondArray[j]);
+  			
+
+  		}
+  	}
+
+  		for (var i = secondArray.length; i < firstArray.length; i++) {
+  			resultArr.push(firstArray[i] + 1);
+  		}
+  	}
+  	else if(firstArray.length < secondArray.length){
+  		for (var i = 0; i < firstArray.length; i++) {
+  		for (var j = 0; i < secondArray.length; j++) {
+  			
+  				resultArr.push(firstArray[i] + secondArray[j]);
+  			
+
+  		}
+  	}
+  		for (var i = firstArray.length; i < secondArray.length; i++) {
+  			resultArr.push(secondArray[i] + 1);
+  		}
+  	}
+  	return resultArr ;
 }
 
-function addArraysForLoop(firstArray, secondArray) {
-  //TODO: you code here
-}
 
 //=========================================================== 3
 //Using recursion, return the sum of all of the positives numbers of an array of numbers.
@@ -45,7 +103,7 @@ var bucketOfSloths = [
 // fullName(bucketOfSloths,0) //==> "Furry Danger Assassin"
 
 function fullName(array, index) {
-  //your code is here
+  return array[index].name.first +' ' + array[index].name.middle + ' ' + array[index].name.last  ;
 }
 
 //  b- Write a function that takes an array of objects (like bucketOfSloths)
@@ -56,7 +114,21 @@ function fullName(array, index) {
 // => {name: {first: "Furry", middle: "Danger", last: "Assassin"}, age: 2}
 
 function longestName(bucketOfSloths) {
-  // TODO: Your code here
+	// useing an array to return all full names 
+	
+	var arrNames =[];
+	var max = 0;
+  for (var i = 0; i < bucketOfSloths.length; i++) {
+  	arrNames.push(fullName(bucketOfSloths,i));
+  }
+
+  for (var i = 0; i < arrNames.length; i++) {
+  	if (max < arrNames[i].length){
+  		max = arrNames[i];
+  	}
+  }
+return max ;
+
 }
 
 //Good Luck :))
