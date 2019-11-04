@@ -8,6 +8,17 @@
 
 function operateOn(firstNumber, secondNumber, operation) {
   //TODO: your code here
+  var result = 0; 
+  if (operation === 0) {
+  	result += firstNumber + secondNumber ; 
+  }else if (operation === 1){
+  	result += firstNumber * secondNumber ; 
+  }else if (operation === 2) {
+  result += firstNumber / secondNumber ;
+  }else {
+  	result = "can't solve"
+  }
+  return result
 }
 
 //========================================================== 2
@@ -18,15 +29,45 @@ function operateOn(firstNumber, secondNumber, operation) {
 
 function addArraysWhileLoop(firstArray, secondArray) {
   //TODO: your code here
-}
+}//first of all we need to check if the both arrays have the same or different length  and we are going to do a statement for each case . if they both have the same length
+//we are going to itterate over the two arrays and each itteration we sum the two numbers with same index and push them inside the empty array variable that we should have declared before 
+//in case the arrays got difeerence length  (array1 > array2)we are going to do the same thing but whenever the array.length ends and started giving us undefined we should return 1 unstead of undifined that is going to cause a NaN as a result
+// and another condition if the opposite .. 
+// and the same thing for the for loop .. got issues with syntax and i didn't wanna loose time . ill push a refactor file in the self hackibng time 
 
 function addArraysForLoop(firstArray, secondArray) {
   //TODO: you code here
+  var result = []; 
+  
+  for (var i = 0 ; i < firstArray.length ; i++) {
+  	for (var j =0 ; j <secondArray.length ; j++){
+  		var sum = 0
+  		if (firstArray[i] === 'undefined'){
+  			sum += (secondArray[j] + 1)
+  			result.push(sum)
+  		}else if (secondArray[j] === 'undefined'){
+  			sum += (firstArray[i] + 1)
+  			result.push(sum)
+  		}
+  		sum += (firstArray[i] + secondArray[j]) 
+  		result.push(sum)
+  	}
+  }
+  return result ;
 }
 
 //=========================================================== 3
 //Using recursion, return the sum of all of the positives numbers of an array of numbers.
 // posSum[1,-4,7,12] => 1 + 7 + 12 = 20
+function posSum(array){
+  if(array.length === 0){
+    return 0 ;
+  } if(array[0] > 0){
+   		 return array[0] + posSum(array.slice(1));
+  }
+  return posSum(array.slice(1));
+};
+
 
 //TODO: you code here
 
@@ -44,8 +85,13 @@ var bucketOfSloths = [
 // a- write a function fullName that takes index number and array as input and return the full name as string
 // fullName(bucketOfSloths,0) //==> "Furry Danger Assassin"
 
-function fullName(array, index) {
+function fullName(array, number) {
   //your code is here
+  var result = ""
+  for (var key in array[number].name){
+    result = result + " " + array[number].name[key]
+  }
+  return result.slice(1)
 }
 
 //  b- Write a function that takes an array of objects (like bucketOfSloths)
@@ -55,8 +101,16 @@ function fullName(array, index) {
 //  longestName(bucketOfSloths);
 // => {name: {first: "Furry", middle: "Danger", last: "Assassin"}, age: 2}
 
-function longestName(bucketOfSloths) {
+function longestName(array) {
   // TODO: Your code here
-}
+   result = 0
+  for (var i = 1; i < array.length ; i++){
+   if (fullName(array, i).length > fullName(array, result).length){
+    result = result + i
+  }
+  }
+  return array[result];
+};
+
 
 //Good Luck :))
