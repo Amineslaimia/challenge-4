@@ -7,7 +7,20 @@
 //The function should never return undefined
 
 function operateOn(firstNumber, secondNumber, operation) {
-  //TODO: your code here
+  if (firstNumber === undefined || secondNumber === undefined) {
+    return 'missing input number';
+  }
+  if(operation === 0) {
+    return firstNumber + secondNumber;
+  } else if (operation === 1) {
+      return firstNumber * secondNumber;
+  }
+  else if(operation === 2) {
+    return firstNumber / secondNumber;
+  }
+  else {
+return  'Nothing to Operate On';
+  }
 }
 
 //========================================================== 2
@@ -17,18 +30,58 @@ function operateOn(firstNumber, secondNumber, operation) {
 //Write the function using while loop and for loop
 
 function addArraysWhileLoop(firstArray, secondArray) {
-  //TODO: your code here
-}
+  var index = 0;
+  var resultsArr = [];
+
+  if (firstArray.length < secondArray.length) {
+    firstArray.push(1);
+  } else {
+    secondArray.push(1);
+    }
+
+    while(index < firstArray.length ) {
+     resultsArr.push((firstArray[index] + secondArray[index]));
+     index++;   
+       }
+       return resultsArr;
+    }
+
 
 function addArraysForLoop(firstArray, secondArray) {
-  //TODO: you code here
-}
+
+
+  var resultsArr = [];
+
+  if (firstArray.length < secondArray.length) {
+    firstArray.push(1);
+  } else {
+    secondArray.push(1);
+    }
+
+    for (var i = 0; i < firstArray.length; i++) {
+           resultsArr.push((firstArray[i] + secondArray[i]));
+       }
+       return resultsArr;
+    }
+
 
 //=========================================================== 3
 //Using recursion, return the sum of all of the positives numbers of an array of numbers.
 // posSum[1,-4,7,12] => 1 + 7 + 12 = 20
 
 //TODO: you code here
+function  posSum(array, result) {
+
+var result = result || 0; 
+
+  if (array.length === 0) {
+    return result;
+  }
+  if (array[0] >= 0) {
+    result += array[0];
+  }
+  return posSum(array.slice(1), result)
+}
 
 //=========================================================== 4
 //I have a bucket of sloths. Each sloth is special and has a long name.
@@ -45,9 +98,12 @@ var bucketOfSloths = [
 // fullName(bucketOfSloths,0) //==> "Furry Danger Assassin"
 
 function fullName(array, index) {
-  //your code is here
+  if (array[index].name.middle === undefined) {
+      return array[index].name.first + ' ' + array[index].name.last;
+  } else {
+      return array[index].name.first + ' ' + array[index].name.middle + ' ' + array[index].name.last;  
+  }   
 }
-
 //  b- Write a function that takes an array of objects (like bucketOfSloths)
 //  and returns the sloth (should return an object)
 //  with the longest name (first, middle & last).
@@ -56,7 +112,17 @@ function fullName(array, index) {
 // => {name: {first: "Furry", middle: "Danger", last: "Assassin"}, age: 2}
 
 function longestName(bucketOfSloths) {
-  // TODO: Your code here
+  var longestName = fullName(bucketOfSloths,0);
+  var indexOfLongestName = 0;
+        for (var i = 0; i < bucketOfSloths.length; i++) {
+        var fullNameTest = fullName(bucketOfSloths,i)
+       if (longestName.length < fullNameTest.length) {
+        longestName = fullNameTest;
+       indexOfLongestName = i;
+    }
+  }     
+   return bucketOfSloths[indexOfLongestName];
 }
+
 
 //Good Luck :))
