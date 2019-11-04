@@ -8,6 +8,15 @@
 
 function operateOn(firstNumber, secondNumber, operation) {
   //TODO: your code here
+  if(operation === 0){
+    return firstNumber + secondNumber
+  } else if(operation === 1){
+    return firstNumber * secondNumber
+  } else if (operation === 2){
+    return firstNumber / secondNumber
+  } else {
+    return 'Nothing to Operate On'
+  }
 }
 
 //========================================================== 2
@@ -17,11 +26,51 @@ function operateOn(firstNumber, secondNumber, operation) {
 //Write the function using while loop and for loop
 
 function addArraysWhileLoop(firstArray, secondArray) {
-  //TODO: your code here
+  var result = []
+  var i = 0
+
+  while(firstArray.length > secondArray.length){
+    secondArray.push(1)
+  }
+  while(secondArray.length > firstArray.length){
+    firstArray.push(1)
+  }
+
+  while (i !== firstArray.length){
+    result.push(firstArray[i]+secondArray[i])
+    i++
+  }
+  return result
 }
 
+
 function addArraysForLoop(firstArray, secondArray) {
-  //TODO: you code here
+  var result = [];
+
+    if (firstArray.length > secondArray.length){
+       for (var i = secondArray.length ; i < firstArray.length; i++ ){
+
+        secondArray.push(1)
+
+        }
+    }
+
+    if (secondArray.length > firstArray.length){
+       for (var i = firstArray.length ; i < secondArray.length; i++ ){
+
+        firstArray.push(1)
+
+        }
+    }
+
+
+    for (var i = 0; i <firstArray.length ; i++){
+    result.push(firstArray[i]+secondArray[i])
+    }
+
+      
+      return result;
+
 }
 
 //=========================================================== 3
@@ -29,6 +78,26 @@ function addArraysForLoop(firstArray, secondArray) {
 // posSum[1,-4,7,12] => 1 + 7 + 12 = 20
 
 //TODO: you code here
+/////////////////////////////////////////////// failed , I still need more practice 
+function possSum(array){
+  var possitive = [];
+  var sum = 0
+
+for(var i = 0; i < array.length; i++){
+  if (array[i]>= 0){
+    possitive.push(array[i])
+  }
+}
+
+if(possitive.length === 0){
+  return sum;
+}
+
+return  sum +=  possitive[0] + possitive(array.shift[0])
+
+}
+
+
 
 //=========================================================== 4
 //I have a bucket of sloths. Each sloth is special and has a long name.
@@ -45,6 +114,13 @@ var bucketOfSloths = [
 // fullName(bucketOfSloths,0) //==> "Furry Danger Assassin"
 
 function fullName(array, index) {
+  for (var i = 0; i <= array.length; i++){
+    for(var i in array){
+      if ( key[] === index){
+        /////////////////////////////// time is up
+      }
+    }
+  }
   //your code is here
 }
 
