@@ -7,7 +7,17 @@
 //The function should never return undefined
 
 function operateOn(firstNumber, secondNumber, operation) {
-  //TODO: your code here
+  if (operation === 0) {
+    return firstNumber + secondNumber;
+  }
+  if (operation === 1) {
+    return firstNumber * secondNumber;
+  }
+  if (operation === 2) {
+    return firstNumber / secondNumber;
+  } else {
+    return "Nothing to Operate On"
+  }
 }
 
 //========================================================== 2
@@ -17,18 +27,54 @@ function operateOn(firstNumber, secondNumber, operation) {
 //Write the function using while loop and for loop
 
 function addArraysWhileLoop(firstArray, secondArray) {
-  //TODO: your code here
+  if (firstArray.length < secondArray.length){
+    firstArray.push(1)
+  }
+  if (firstArray.length > secondArray.length){
+    secondArray.push(1)
+  }
+  var i = 0;
+  var newArr = [];
+  while(i < firstArray.length) {
+    newArr.push(firstArray[i] + secondArray[i]); 
+    i++;
+  }
+
+  return newArr;
 }
 
 function addArraysForLoop(firstArray, secondArray) {
-  //TODO: you code here
+  if (firstArray.length < secondArray.length){
+    firstArray.push(1)
+  }
+  if (firstArray.length > secondArray.length){
+    secondArray.push(1)
+  }
+  var newArr = [];
+  for(var i = 0 ;i < firstArray.length; i++) {
+    newArr.push(firstArray[i] + secondArray[i]); 
+  }
+
+  return newArr;
 }
 
 //=========================================================== 3
 //Using recursion, return the sum of all of the positives numbers of an array of numbers.
 // posSum[1,-4,7,12] => 1 + 7 + 12 = 20
+var i = 0;
+var result = 0;
+function posSum(array) {
+  if (array[i] >= 0) {
+    result = result + array[i]
+    
+  }
 
-//TODO: you code here
+  i++;
+
+  return result + posSum(array-1)
+}
+
+// i need more practice in recursion
 
 //=========================================================== 4
 //I have a bucket of sloths. Each sloth is special and has a long name.
@@ -45,7 +91,7 @@ var bucketOfSloths = [
 // fullName(bucketOfSloths,0) //==> "Furry Danger Assassin"
 
 function fullName(array, index) {
-  //your code is here
+  return array[index].name.first + " " + array[index].name.middle + " " + array[index].name.last;
 }
 
 //  b- Write a function that takes an array of objects (like bucketOfSloths)
@@ -55,8 +101,32 @@ function fullName(array, index) {
 //  longestName(bucketOfSloths);
 // => {name: {first: "Furry", middle: "Danger", last: "Assassin"}, age: 2}
 
-function longestName(bucketOfSloths) {
-  // TODO: Your code here
+function longestName(array) {
+  var longestName;
+  for (var i = 0; i < array.length; i++) {
+    var Name = array[i].name.first + " " + array[i].name.middle + " " + array[i].name.last;
+    
+
+    if (i < array.length - 1) {
+      var nextName = array[i + 1].name.first + " " + array[i + 1].name.middle + " " + array[i + 1].name.last;
+      if(name.length < nextName.length){
+        longestName = array[i+1];
+      }
+      if (name.length > nextName.length) {
+        longestName = array[i];
+      }
+    }
+    
+    if (i >= bucketOfSloths.length) {
+      var lastName = array[i - 1].name.first + " " + array[i - 1].name.middle + " " + array[i - 1].name.last;
+      if (name.length > lastName.length) {
+        longestName = array[i-1];
+      }
+    }
+    
+  }
+
+  return longestName;
 }
 
 //Good Luck :))
