@@ -7,7 +7,17 @@
 //The function should never return undefined
 
 function operateOn(firstNumber, secondNumber, operation) {
-  //TODO: your code here
+	var result;
+	
+	if (operation === 0) {
+		return result = firstNumber + secondNumber;
+	} else if (operation === 1) {
+		return result = firstNumber * secondNumber;
+	} else if (operation === 2) {
+		return result = firstNumber / secondNumber;
+	} else {
+		return "Nothing to Operate On";
+	}
 }
 
 //========================================================== 2
@@ -17,11 +27,39 @@ function operateOn(firstNumber, secondNumber, operation) {
 //Write the function using while loop and for loop
 
 function addArraysWhileLoop(firstArray, secondArray) {
-  //TODO: your code here
+  var i = 0;
+  var j = 0;
+  var resultArr = [];
+
+  while (i !== firstArray.length && j !== secondArray.length) {
+  	if (firstArray.length === secondArray.length) {
+  		resultArr.push(firstArray[i] + secondArray[j]);
+
+  	////// next lines don't work i don't know why !!
+  	} else if (firstArray.length > secondArray.length){
+  		resultArr.push(firstArray[i] + 1);
+  	} else if (secondArray.length > firstArray.length) {
+  		resultArr.push(secondArray[j] + 1);
+  	}
+  	////// previous lines don't work i don't know why !!
+  	i++;
+  	j++
+  }
+  return resultArr;
 }
 
+///// took a lot of time 
+// not solved
 function addArraysForLoop(firstArray, secondArray) {
-  //TODO: you code here
+
+  for (var i = 0; i < firstArray.length; i++) {
+  			for (var j = 0; j < secondArray.length; j++) {
+  				if (firstArray.length === secondArray.length) {
+  					secondArray.push(firstArray[i] + secondArray[j]);
+  			}
+  		}
+  	}
+  return secondArray;
 }
 
 //=========================================================== 3
@@ -29,6 +67,21 @@ function addArraysForLoop(firstArray, secondArray) {
 // posSum[1,-4,7,12] => 1 + 7 + 12 = 20
 
 //TODO: you code here
+
+/////
+// not finished
+// var i = 0;
+var sum;
+function posSum(arr, i) {
+	sum += arr[i];
+	if (arr.length !== 0) {
+		if (arr[i] % 2 === 0) {
+			return posSum(arr.slice(1), i++);
+		}
+	}
+	return sum
+}
+////
 
 //=========================================================== 4
 //I have a bucket of sloths. Each sloth is special and has a long name.
