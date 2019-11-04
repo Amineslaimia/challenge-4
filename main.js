@@ -115,7 +115,7 @@ function fullName(array, index) {
 //  longestName(bucketOfSloths);
 // => {name: {first: "Furry", middle: "Danger", last: "Assassin"}, age: 2}
 
-// I treaid to compare the length of the names using the fullname fumction to see which name is the longest.
+// I triad  to compare the length of the names using the fullname fumction to see which name is the longest.
 
 function longestName(bucketOfSloths) {
 	var check = {};
