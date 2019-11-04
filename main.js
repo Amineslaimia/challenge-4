@@ -37,7 +37,7 @@ function addArraysWhileLoop(firstArray, secondArray) {
   var result = [];
   var i = 0;
   var maxLength = secondArray.length;
-  
+
   if (firstArray.length > secondArray.length) {
     maxLength = firstArray.length;
   } 
@@ -82,7 +82,18 @@ function addArraysForLoop(firstArray, secondArray) {
 //Using recursion, return the sum of all of the positives numbers of an array of numbers.
 // posSum[1,-4,7,12] => 1 + 7 + 12 = 20
 
-//TODO: you code here
+function posSum(numbers, sum = 0){
+  if (numbers.length === 0) {
+    return sum;
+  }
+  
+  if (numbers[0] >= 0) {
+    return sum + numbers[0] + posSum(numbers.slice(1) , sum);
+
+  } else {
+    return sum + posSum(numbers.slice(1) , sum);
+  }
+}
 
 //=========================================================== 4
 //I have a bucket of sloths. Each sloth is special and has a long name.
@@ -99,7 +110,18 @@ var bucketOfSloths = [
 // fullName(bucketOfSloths,0) //==> "Furry Danger Assassin"
 
 function fullName(array, index) {
-  //your code is here
+
+  if (index >= array.length) {
+    return "sorry your index is out of bounds!"
+  }
+
+  var middle = ' ' + array[index]['name']['middle'];
+
+  if (array[index]['name']['middle'] === undefined) {
+    middle = '';
+  }
+  var fName = array[index]['name']['first'] +  middle + ' ' + array[index]['name']['last'];
+  return fName;
 }
 
 //  b- Write a function that takes an array of objects (like bucketOfSloths)
@@ -110,7 +132,14 @@ function fullName(array, index) {
 // => {name: {first: "Furry", middle: "Danger", last: "Assassin"}, age: 2}
 
 function longestName(bucketOfSloths) {
-  // TODO: Your code here
+  var longestObjectName = fullName(bucketOfSloths, 0).length;
+  var longestObj = bucketOfSloths[0];
+  for (var i = 0; i < bucketOfSloths.length; i++) {
+    if (longestObjectName < fullName(bucketOfSloths, i).length ) {
+      longestObj = bucketOfSloths[i];
+    }
+  }
+  return longestObj;
 }
 
 //Good Luck :))
