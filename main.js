@@ -8,6 +8,23 @@
 
 function operateOn(firstNumber, secondNumber, operation) {
   //TODO: your code here
+  var result = 0 ;
+  if(operation === 0){
+  	result = firstNumber + secondNumber ;
+  	return result ;
+  }
+   else if(operation === 1){
+  	result = firstNumber * secondNumber ;
+  	return result ;
+  }
+   else if(operation === 2){
+  	result = firstNumber/ secondNumber ;
+  	return result ;
+  }
+   else{
+  	
+  	return 'Nothing to Operate On' ;
+  }
 }
 
 //========================================================== 2
@@ -17,17 +34,62 @@ function operateOn(firstNumber, secondNumber, operation) {
 //Write the function using while loop and for loop
 
 function addArraysWhileLoop(firstArray, secondArray) {
+	if(firstArray.length > secondArray.length){
+		secondArray.push(4);
+	}else if(firstArray.length < secondArray.length){
+		firstArray.push(6);
+	}
   //TODO: your code here
+  var i=0;
+  var arrResutl = [];
+
+  while(firstArray.length > i){
+   arrResutl.push(firstArray[i] + secondArray[i]);
+   i++;
+  }
+   return arrResutl;
 }
 
 function addArraysForLoop(firstArray, secondArray) {
   //TODO: you code here
+  if(firstArray.length > secondArray.length){
+		secondArray.push(4);
+	}else if(firstArray.length < secondArray.length){
+		firstArray.push(6);
+	}
+	  var arrResutl = [];
+
+	for (var i = 0; i < firstArray.length; i++) {
+
+		 arrResutl.push(firstArray[i] + secondArray[i]);
+	}
+	return arrResutl;
 }
 
 //=========================================================== 3
 //Using recursion, return the sum of all of the positives numbers of an array of numbers.
 // posSum[1,-4,7,12] => 1 + 7 + 12 = 20
+var posSum = [1,-4,7,12];
+var sum = 0;
+var i =0;
 
+function sumPositives(posSum){
+	 var length = posSum.length;
+	 if(length === i){
+	 	return sum;
+	 }
+     else if(posSum[i] > 0){
+     	sum = sum + posSum[i];
+     	i++;
+     	sumPositives(posSum)
+     }else {
+     	i++;
+        sumPositives(posSum)
+
+     }
+
+  
+}
 //TODO: you code here
 
 //=========================================================== 4
@@ -46,6 +108,21 @@ var bucketOfSloths = [
 
 function fullName(array, index) {
   //your code is here
+  var str = ''
+  if(array[index].name.middle === undefined){
+
+   str = str +array[index].name.first;
+   str = str +' '+ array[index].name.last;
+}
+ else{
+  str = str +array[index].name.first;
+  str = str +' '+ array[index].name.middle;
+  str = str +' '+ array[index].name.last;
+ }
+  
+
+
+  return str;
 }
 
 //  b- Write a function that takes an array of objects (like bucketOfSloths)
@@ -57,6 +134,25 @@ function fullName(array, index) {
 
 function longestName(bucketOfSloths) {
   // TODO: Your code here
+  var ar = [];
+  ar.push(fullName(bucketOfSloths,0));
+  ar.push(fullName(bucketOfSloths,1));
+  ar.push(fullName(bucketOfSloths,2));
+  ar.push(fullName(bucketOfSloths,3));
+  ar.push(fullName(bucketOfSloths,4));
+
+  var maxLength = ar[0].length;
+  var index = 0
+
+  for (var i = 0; i < ar.length; i++) {
+      if(ar[i].length > maxLength){
+      	maxLength = ar[i].length
+        index = i;
+      }
+  }
+  return bucketOfSloths[index].name;
+
+
 }
 
 //Good Luck :))
