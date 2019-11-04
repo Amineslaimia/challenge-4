@@ -8,6 +8,19 @@
 
 function operateOn(firstNumber, secondNumber, operation) {
   //TODO: your code here
+  var oper = 0;
+  if(operation === 0) {
+    oper = firstNumber + secondNumber;
+    return oper;
+  }else if(operation === 1) {
+    oper = firstNumber * secondNumber;
+    return oper;
+  }else if(operation === 2) {
+    oper = firstNumber / secondNumber;
+    return oper;
+  }else {
+    return "Nothing to Operate On";
+  }
 }
 
 //========================================================== 2
@@ -18,16 +31,155 @@ function operateOn(firstNumber, secondNumber, operation) {
 
 function addArraysWhileLoop(firstArray, secondArray) {
   //TODO: your code here
+  var arr = [];
+  if(firstArray.length === secondArray.length) {
+    /*
+    for(let i = 0; i < firstArray.length; i++) {
+      arr.push(firstArray[i] + secondArray[i]);
+    } */
+    var i = 0;
+    while(i < firstArray.length) {
+      arr.push(firstArray[i] + secondArray[i]);
+      i++;
+    }
+  }else if(firstArray.length > secondArray.length) {
+    /*
+    for(let j = 0; j < secondArray.length; j++) {
+      arr.push(firstArray[j] + secondArray[j]);
+    }
+    */
+    var j = 0;
+    while(j < secondArray.length) {
+      arr.push(firstArray[j] + secondArray[j]);
+      j++;
+    }
+    /*
+    for(let h = secondArray.length; h < firstArray.length; h++) {
+      arr.push(firstArray[h] + 1);
+    }
+    */ 
+    var h = secondArray.length;
+    while(h < firstArray.length) {
+      arr.push(firstArray[h] + 1);
+      h++;
+    }
+  }else if(firstArray.length < secondArray.length) {
+    /*
+    for(let k = 0; k < firstArray.length; k++) {
+      arr.push(firstArray[k] + secondArray[k]);
+    }
+    */
+    var k = 0; 
+    while(k < firstArray.length) {
+      arr.push(firstArray[k] + secondArray[k]);
+      k++;
+      }
+    
+    /*
+    for(let l = firstArray.length; l < secondArray.length; l++) {
+      arr.push(secondArray[l] + 1);
+    }
+    */
+    var l = firstArray.length;
+    while(l < secondArray.length) {
+      arr.push(secondArray[l] + 1);
+      l++;
+    }
+  }
+  return arr;
 }
 
 function addArraysForLoop(firstArray, secondArray) {
+  //TODO: your code here
+  var arr = [];
+  if(firstArray.length === secondArray.length) {
+    
+    for(let i = 0; i < firstArray.length; i++) {
+      arr.push(firstArray[i] + secondArray[i]);
+    } 
+    /*
+    var i = 0;
+    while(i < firstArray.length) {
+      arr.push(firstArray[i] + secondArray[i]);
+      i++;
+    }
+    */
+  }else if(firstArray.length > secondArray.length) {
+    
+    for(let j = 0; j < secondArray.length; j++) {
+      arr.push(firstArray[j] + secondArray[j]);
+    }
+    
+    /*
+    var j = 0;
+    while(j < secondArray.length) {
+      arr.push(firstArray[j] + secondArray[j]);
+      j++;
+    }
+    */
+    
+    for(let h = secondArray.length; h < firstArray.length; h++) {
+      arr.push(firstArray[h] + 1);
+    }
+     
+    /*
+    var h = secondArray.length;
+    while(h < firstArray.length) {
+      arr.push(firstArray[h] + 1);
+      h++;
+    }
+    */
+  }else if(firstArray.length < secondArray.length) {
+    
+    for(let k = 0; k < firstArray.length; k++) {
+      arr.push(firstArray[k] + secondArray[k]);
+    }
+    
+    /*
+    var k = 0; 
+    while(k < firstArray.length) {
+      arr.push(firstArray[k] + secondArray[k]);
+      k++;
+      }
+    */
+    
+    for(let l = firstArray.length; l < secondArray.length; l++) {
+      arr.push(secondArray[l] + 1);
+    }
+    /*
+    var l = firstArray.length;
+    while(l < secondArray.length) {
+      arr.push(secondArray[l] + 1);
+      l++;
+    }
+    */
+  }
+  return arr;
+} 
   //TODO: you code here
-}
+  
 
 //=========================================================== 3
 //Using recursion, return the sum of all of the positives numbers of an array of numbers.
 // posSum[1,-4,7,12] => 1 + 7 + 12 = 20
 
+function posSum(array) {
+
+if(array.length > 0){
+  var lol = array.pop();
+  if(lol >= 0 ) {
+    return lol + sum(array.pop());
+  }else if(lol < 0) {
+    lol = 0;
+    return lol + sum(array.pop());
+
+  }
+}else if(array.length === 0) {
+  return 0;
+}
+
+   
+}
 //TODO: you code here
 
 //=========================================================== 4
@@ -46,6 +198,17 @@ var bucketOfSloths = [
 
 function fullName(array, index) {
   //your code is here
+  var str = "";
+  var arr = []; 
+  var access = array[index].name;
+  for(var key in access) {
+    arr.push(access[key]);
+  }
+  for(let i = 0; i < arr.length - 1; i++) {
+    str += arr[i] + " ";
+  }
+  str += arr[arr.length - 1];
+  return str;
 }
 
 //  b- Write a function that takes an array of objects (like bucketOfSloths)
@@ -57,6 +220,40 @@ function fullName(array, index) {
 
 function longestName(bucketOfSloths) {
   // TODO: Your code here
+  var sloth = {};
+  
+  var output = [];
+
+  
+
+
+for(let j = 0; j < bucketOfSloths.length; j++) {
+
+var str = "";
+  var arr = []; 
+  var access = bucketOfSloths[j].name;
+  for(var key in access) {
+    arr.push(access[key]);
+  }
+  for(let i = 0; i < arr.length; i++) {
+    str += arr[i];
+  }
+
+  output.push(str);
+
+}
+
+sloth = bucketOfSloths[0];
+var longest =  output[0].length;
+for(let l = 1; l < output.length; l++) {
+  if(output[l].length > longest) {
+    longest = output[l].length;
+    sloth = bucketOfSloths[l];
+  }
+}
+
+
+  return sloth;
 }
 
 //Good Luck :))
